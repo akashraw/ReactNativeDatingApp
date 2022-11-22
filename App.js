@@ -3,12 +3,16 @@ import React from 'react'
 import OnBoardScreen from './src/Screens/OnBoardScreen'
 import LoginScreen from './src/Screens/LoginScreen'
 import MobileScreen from './src/Screens/MobileScreen'
+import EmailSignUp from './src/Screens/EmailSignUp'
+import Routes from './src/Navigations/Routes'
 
 export default function App() {
   return (
     // <LoginScreen/>
     // <OnBoardScreen/>
-    <MobileScreen/>
+    // <MobileScreen/>
+    // <EmailSignUp/>
+    <Routes/>
   )
 }
 

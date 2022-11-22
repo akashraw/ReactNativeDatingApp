@@ -9,15 +9,18 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {Login} from '../Components/Auth';
+import {SignUp} from '../Components/Auth';
 
-export default function LoginScreen() {
+export default function EmailSignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const SubmitCred = () => {
-    if (!email && !password) return alert('Please fill the email field');
+    if (!email && !password && !confirmPassword)
+      return alert('Please fill the email field');
+    if (password !== confirmPassword) return alert('Password do not match');
 
-    Login(email, password);
+    SignUp(email, password, confirmPassword);
   };
   return (
     <SafeAreaView>
@@ -37,11 +40,18 @@ export default function LoginScreen() {
           placeholder="Password"
           secureTextEntry={true}
           onSubmitEditing={text => setPassword(text)}
+          //   value={email}
+        />
+        <TextInput
+          style={styles.confirmpass}
+          placeholder="Confirm password"
+          secureTextEntry={true}
+          onSubmitEditing={text => setConfirmPassword(text)}
         />
       </KeyboardAvoidingView>
       <TouchableOpacity activeOpacity={0.5} onPress={SubmitCred}>
         <View style={styles.btnWrap}>
-          <Text style={{fontSize: 16, fontWeight:'bold'}}>Login</Text>
+          <Text style={{fontSize: 16}}>Confirm</Text>
         </View>
       </TouchableOpacity>
     </SafeAreaView>

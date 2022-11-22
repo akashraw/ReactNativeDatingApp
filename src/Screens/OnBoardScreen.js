@@ -11,9 +11,9 @@ import {
 import React, {useState} from 'react';
 import DATA from '../DataSources/OnBoardScreenData';
 
-export default function OnBoardScreen() {
+export default function OnBoardScreen({navigation}) {
   const {width} = useWindowDimensions();
-  const [dot, setDot]=useState(); 
+  const [dot, setDot] = useState();
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -40,7 +40,7 @@ export default function OnBoardScreen() {
           </View>
         )}
       />
-      <TouchableOpacity activeOpacity={0.6}>
+      <TouchableOpacity activeOpacity={0.6} onPress={()=>navigation.navigate('SignUpOption')}>
         <View style={styles.btn}>
           <Text style={styles.buttonText}>Create an account</Text>
         </View>
@@ -60,7 +60,6 @@ export default function OnBoardScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     paddingVertical: 10,
   },
@@ -101,7 +100,7 @@ const styles = StyleSheet.create({
   },
   carDot: {},
   btn: {
-    marginTop: 40,
+    marginTop: 80,
     marginHorizontal: 40,
     width: 295,
     height: 56,
@@ -120,4 +119,3 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
-

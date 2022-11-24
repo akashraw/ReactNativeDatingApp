@@ -23,7 +23,7 @@ export default function LoginScreen() {
     <SafeAreaView>
       <View style={styles.head}>
         <Text style={{fontSize: 34, fontWeight: 'bold'}}>
-          Sign up with email
+          Login using password
         </Text>
       </View>
       <KeyboardAvoidingView style={styles.loginField}>

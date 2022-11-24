@@ -4,24 +4,21 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {SignUp} from '../Components/Auth';
+import SignUpApi from '../Components/Auth';
 
 export default function EmailSignUp() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const SubmitCred = () => {
-    if (!email && !password && !confirmPassword)
-      return alert('Please fill the email field');
-    if (password !== confirmPassword) return alert('Password do not match');
 
-    SignUp(email, password, confirmPassword);
+  const SubmitCred = () => {
+    console.log(email);
   };
+
   return (
     <SafeAreaView>
       <View style={styles.head}>
@@ -33,20 +30,22 @@ export default function EmailSignUp() {
         <TextInput
           style={styles.email}
           placeholder="Email id"
-          onSubmitEditing={text => setEmail(text)}
+          value={email}
+          onChangeText={text => setEmail(text)}
         />
         <TextInput
           style={styles.password}
           placeholder="Password"
           secureTextEntry={true}
-          onSubmitEditing={text => setPassword(text)}
-          //   value={email}
+          onChangeText={text => setPassword(text)}
+          value={password}
         />
         <TextInput
           style={styles.confirmpass}
           placeholder="Confirm password"
           secureTextEntry={true}
-          onSubmitEditing={text => setConfirmPassword(text)}
+          onChangeText={text => setConfirmPassword(text)}
+          value={confirmPassword}
         />
       </KeyboardAvoidingView>
       <TouchableOpacity activeOpacity={0.5} onPress={SubmitCred}>

@@ -9,7 +9,7 @@ import {
 import Icons from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 
-export default function SignUpOption(navigation) {
+export default function SignUpOption({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imgContainer}>

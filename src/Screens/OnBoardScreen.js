@@ -8,12 +8,11 @@ import {
   FlatList,
   useWindowDimensions,
 } from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import DATA from '../DataSources/OnBoardScreenData';
 
 export default function OnBoardScreen({navigation}) {
   const {width} = useWindowDimensions();
-  const [dot, setDot] = useState();
   return (
     <SafeAreaView style={styles.container}>
       <FlatList

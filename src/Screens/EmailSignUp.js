@@ -4,18 +4,22 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
 import React, {useState} from 'react';
+<<<<<<< HEAD
 import {SignUp} from '../Components/Auth.js';
 
 export default function EmailSignUp({navigation}) {
+=======
+import SignUpApi from '../Components/Auth';
+>>>>>>> 177db292ad4be57bcd5266548c36c27a9fc48c0c
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+<<<<<<< HEAD
   
   
   const SubmitCred = () => {
@@ -29,6 +33,13 @@ export default function EmailSignUp({navigation}) {
   };
   
   
+=======
+
+  const SubmitCred = () => {
+    console.log(email);
+  };
+
+>>>>>>> 177db292ad4be57bcd5266548c36c27a9fc48c0c
   return (
     <SafeAreaView>
       <View style={styles.head}>

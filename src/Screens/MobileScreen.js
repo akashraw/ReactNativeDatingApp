@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React, {useState} from 'react';
 
-export default function MobileScreen() {
+export default function MobileScreen({navigation}) {
   const [value, setValue] =useState('');
   return (
     <SafeAreaView>

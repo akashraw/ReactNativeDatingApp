@@ -9,19 +9,26 @@ import {
   View,
 } from 'react-native';
 import React, {useState} from 'react';
-import {SignUp} from '../Components/Auth';
+import {SignUp} from '../Components/Auth.js';
 
-export default function EmailSignUp() {
+export default function EmailSignUp({navigation}) {
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  
+  
   const SubmitCred = () => {
     if (!email && !password && !confirmPassword)
-      return alert('Please fill the email field');
-    if (password !== confirmPassword) return alert('Password do not match');
+    {console.log(email)
+      // return alert('Please fill the email field')
+    }
+    // if (password !== confirmPassword) return alert('Password do not match');
 
-    SignUp(email, password, confirmPassword);
+    SignUp(email, password);
   };
+  
+  
   return (
     <SafeAreaView>
       <View style={styles.head}>
@@ -33,20 +40,22 @@ export default function EmailSignUp() {
         <TextInput
           style={styles.email}
           placeholder="Email id"
-          onSubmitEditing={text => setEmail(text)}
+          value={email}
+          onChangeText={text => setEmail(text)}
         />
         <TextInput
           style={styles.password}
           placeholder="Password"
           secureTextEntry={true}
-          onSubmitEditing={text => setPassword(text)}
-          //   value={email}
+          onChangeText={text => setPassword(text)}
+          value={password}
         />
         <TextInput
           style={styles.confirmpass}
           placeholder="Confirm password"
           secureTextEntry={true}
-          onSubmitEditing={text => setConfirmPassword(text)}
+          onChangeText={text => setConfirmPassword(text)}
+          value={confirmPassword}
         />
       </KeyboardAvoidingView>
       <TouchableOpacity activeOpacity={0.5} onPress={SubmitCred}>

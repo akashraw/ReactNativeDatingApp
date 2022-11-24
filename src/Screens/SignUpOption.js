@@ -9,7 +9,7 @@ import {
 import Icons from 'react-native-vector-icons/FontAwesome';
 import React from 'react';
 
-export default function SignUpOption(navigation) {
+export default function SignUpOption({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.imgContainer}>
@@ -19,7 +19,7 @@ export default function SignUpOption(navigation) {
         <View>
           <Text style={styles.signUpText}>Sign Up to continue</Text>
         </View>
-        <TouchableOpacity onPress={() => navigation.push('EmailSignUp')}>
+        <TouchableOpacity onPress={() => navigation.navigate('EmailSignUp')}>
           <View style={styles.emailSign}>
             <Text style={{fontSize: 16, fontWeight: 'bold'}}>
               Continue with email
